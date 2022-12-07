@@ -42,7 +42,7 @@
          return false;
       }
       if(form.user_pw.value==""){
-         alert("패스워드를 입력하세요");
+         alert("패스워드를 입력하세요.");
          form.user_pw.focus();
          return false;
       }
@@ -56,9 +56,9 @@
     -->
    <form action="LoginProcess.jsp" method="post" name="loginFrm"
       onsubmit="return validateForm(this);">
-       아이디 : <input type="text" name="user_id"> <br>
-       패스워드 : <input type="password" name="user_pw"><br>
-       <input type="submit" value="로그인하기">
+       아이디 : <input type="text" name="user_id"/> <br>
+       패스워드 : <input type="password" name="user_pw"/><br>
+       <input type="submit" value="로그인하기"/>
    </form>
    <%
    }else{//로그인된 상태

@@ -3,6 +3,7 @@ package membership;
 import javax.servlet.ServletContext;
 
 import common.JDBConnect;
+import model1.board.BoardDTO;
 
 /*
  DAO(Data Access Object)
@@ -33,12 +34,14 @@ public class MemberDAO extends JDBConnect{
 		
 		try {
 			//쿼리문 실행을 위한 prepared객체 생성 및 인파라미터 설정
+
 			psmt=con.prepareStatement(query);
 			psmt.setString(1, uid);
 			psmt.setString(2, upass);
 			//select쿼리문을 실행한 후 ResultSet으로 반환받는다.
 			rs=psmt.executeQuery();
-			
+			System.out.println(query);
+
 			//반환된 ResultSet객체를 통해 회원정보가 있는지 확인한다.
 			if(rs.next()) {
 				//정보가 있다면 DTO객체에 회원정보를 저장한다.
@@ -55,5 +58,7 @@ public class MemberDAO extends JDBConnect{
 		//호출한 지점으로 DTO객체를 반환한다.
 		return dto;
 	}
+	
+	
 
 }

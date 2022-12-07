@@ -32,8 +32,8 @@ dao.close();
 if(memberDTO.getId()!=null){
 	/* 로그인에 성공한 경우라면...
 	세션영역에 회원아이디와 이름을 저장한다.*/
-	session.setAttribute("userId", memberDTO.getId());
-	session.setAttribute("userName", memberDTO.getName());
+	session.setAttribute("UserId", memberDTO.getId());
+	session.setAttribute("UserName", memberDTO.getName());
 	/* 그리고 로그인 페이지로 '이동'한다. */
 	response.sendRedirect("LoginForm.jsp");
 }
