@@ -12,9 +12,24 @@ public class BoardDTO {
 		//멤버변수를 추가한다.
 	private String name;
 	
+	private String writer;
+	private String pass;
+	
 	//특별한 이유가 없다면 생성자는 없어도 된다.
 	
 	//게터/세터
+	public String getWriter() {
+		return writer;
+	}
+	public void setWriter(String writer) {
+		this.writer = writer;
+	}
+	public String getPass() {
+		return pass;
+	}
+	public void setPass(String pass) {
+		this.pass = pass;
+	}
 	public String getNum() {
 		return num;
 	}
