@@ -7,15 +7,11 @@
 <%@include file="./IsLoggedIn.jsp" %>
 <%
 /* 클라이언트가 작성한 폼값을 받는다. */
-String writer=request.getParameter("writer");
-String pass=request.getParameter("pass");
 String title=request.getParameter("title");
 String content=request.getParameter("content");
 
 /* 폼값을 DTO객체에 저장한다. */
 BoardDTO dto=new BoardDTO();
-dto.setWriter(writer);
-dto.setPass(pass);
 dto.setTitle(title);
 dto.setContent(content);
 /* 특히 아이디의 경우 로그인 후 작성페이지에 진입할 수 있으므로

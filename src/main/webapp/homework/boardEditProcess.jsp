@@ -2,8 +2,7 @@
 <%@page import="model1.board.BoardDTO"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-<!DOCTYPE html>
-<%@include file="./IsLoggedIn.jsp" %>
+<%@include file="IsLoggedIn.jsp" %>
 <%
 //수정폼에서 입력한 내용을 파라미터로 받는다.
 String num=request.getParameter("num");
@@ -28,19 +27,10 @@ if(affected==1){
 	수정이 완료되었으면 수정된 내용을 확인하기 위해 주로 내용보기
 	페이지로 이동한다.
 	*/
-	response.sendRedirect("View.jsp?num="+dto.getNum());
+	response.sendRedirect("boardView.jsp?num="+dto.getNum());
 }
 else{
 	/* 수정에 실패하면 뒤로 이동한다. */
 	JSFunction.alertBack("수정하기에 실패하였습니다.", out);
 }
 %>
-<html>
-<head>
-<meta charset="UTF-8">
-<title>Insert title here</title>
-</head>
-<body>
-
-</body>
-</html>

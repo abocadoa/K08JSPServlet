@@ -30,6 +30,17 @@ dao.close();
         integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p"
         crossorigin="anonymous"></script>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.7.1/font/bootstrap-icons.css">    
+	<script>
+		function deletePost(){
+			var confirmed=confirm("진짜로 삭제???");
+			if(confirmed){
+				var form=document.writeFrm;
+				form.method="post";
+				form.action="DeleteProcess.jsp";
+				form.submit();
+			}
+		}
+	</script>
 </head>
 <body>
 <div class="container">
@@ -41,7 +52,8 @@ dao.close();
         <div class="col-9 pt-3">
             <h3>게시판 내용보기 - <small>자유게시판</small></h3>
 
-            <form>
+            <form name="writeFrm">
+            <input type="hid-den" name="num" value="<%=num %>"/>
             <table class="table table-bordered">
             <colgroup>
                 <col width="20%"/>
@@ -59,7 +71,7 @@ dao.close();
                     <th class="text-center" 
                         style="vertical-align:middle;">작성일</th>
                     <td>
-                        2018-01-05
+                        <%= dto.getPostdate() %>
                     </td>
                 </tr>
                 <tr>
@@ -71,25 +83,21 @@ dao.close();
                     <th class="text-center" 
                         style="vertical-align:middle;">조회수</th>
                     <td>
-                        100
+                        <%= dto.getVisitcount() %>
                     </td>
                 </tr>
                 <tr>
                     <th class="text-center" 
                         style="vertical-align:middle;">제목</th>
                     <td colspan="3">
-                        제목영역입니다.
+                        <%= dto.getTitle() %>
                     </td>
                 </tr>
                 <tr>
                     <th class="text-center" 
                         style="vertical-align:middle;">내용</th>
-                    <td colspan="3">
-                        내용영역입니다<br/>
-                        내용영역입니다<br/>
-                        내용영역입니다<br/>
-                        내용영역입니다<br/>
-                        내용영역입니다<br/>
+                    <td colspan="3" height="100">
+                        <%= dto.getContent().replace("\r\n", "<br>").replace(" ", "&nbsp") %>
                     </td>
                 </tr>
                 <tr>
@@ -105,16 +113,21 @@ dao.close();
             <div class="row">
                 <div class="col text-right mb-4">
                     <!-- 각종 버튼 부분 -->
-                    <button type="button" class="btn">Basic</button>
-                    <button type="button" class="btn btn-primary" onclick="location.href='boardWrite.jsp';">글쓰기</button>
-                    <button type="button" class="btn btn-secondary">수정하기</button>
-                    <button type="button" class="btn btn-success">삭제하기</button>
-                    <button type="button" class="btn btn-info">답글쓰기</button>
-                    <button type="button" class="btn btn-warning">리스트보기</button>
-                    <button type="button" class="btn btn-danger">전송하기</button>
+                    <%
+                    if(session.getAttribute("UserId")!=null&&
+                    dto.getId().equals(session.getAttribute("User_id")
+                    .toString())){
+                    %>
+                    <button type="button" class="btn btn-secondary"
+                    onclick="location.href='boardEdit.jsp?num=<%=dto.getNum()%>';">수정하기</button>
+                    <button type="submit" class="btn btn-success"
+                    onclick="deletePost();">삭제하기</button>
+                    <%
+                    }
+                    %>
+                    <button type="button" class="btn btn-warning"
+                    onclick="location=href='boardList.jsp';">리스트보기</button>
                     <button type="button" class="btn btn-dark">Reset</button>
-                    <button type="button" class="btn btn-light">Light</button>
-                    <button type="button" class="btn btn-link">Link</button>
                 </div>
             </div>
             </form> 

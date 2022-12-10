@@ -2,10 +2,9 @@
 <%@page import="model1.board.BoardDTO"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-<!DOCTYPE html>
 <!-- 작성자 본인만 삭제할 수 있으므로 기본적으로 로그인 체크를
 해야한다. -->
-<%@include file="./IsLoggedIn.jsp" %>
+<%@include file="IsLoggedIn.jsp" %>
 <%
 String num=request.getParameter("num");
 
@@ -45,12 +44,3 @@ else{
 	return;
 }
 %>
-<html>
-<head>
-<meta charset="UTF-8">
-<title>Insert title here</title>
-</head>
-<body>
-
-</body>
-</html>
