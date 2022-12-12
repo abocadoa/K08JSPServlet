@@ -67,7 +67,7 @@ function validateForm(form){
 				<h3>
 					게시판 작성 - <small>자유게시판</small>
 				</h3>
-				<form name="writeFrm" method="post" action="EditProcess.jsp"
+				<form name="writeFrm" method="post" action="boardEditProcess.jsp"
 					onsubmit="return validateForm(this);">
 					<input type="hid-den" name="num" value="<%= dto.getNum() %>" />
 					<table class="table table-bordered">

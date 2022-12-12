@@ -99,8 +99,8 @@ dao.close();
 								<th>번호</th>
 								<th>제목</th>
 								<th>작성자</th>
-								<th>작성일</th>
 								<th>조회수</th>
+								<th>작성일</th>
 								<th>첨부</th>
 							</tr>
 						</thead>
@@ -126,7 +126,7 @@ dao.close();
 								<!-- 게시물의 가상번호 -->
 								<td><%=virtualNum%></td>
 								<!-- 제목 -->
-								<td align="left"><a href="View.jsp?num=<%=dto.getNum()%>"><%=dto.getTitle()%></a>
+								<td align="left"><a href="boardView.jsp?num=<%=dto.getNum()%>"><%=dto.getTitle()%></a>
 								</td>
 								<!-- 작성자 아이디 -->
 								<td align="center"><%=dto.getId()%></td>
