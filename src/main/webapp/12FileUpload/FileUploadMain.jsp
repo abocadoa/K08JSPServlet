@@ -36,8 +36,14 @@
     	cos.jar확장 라이브러리에서 제공하는 MultipartRequest객체를 통해
     	받아야한다.
      -->
+     <!-- 파일명을 날짜와 시간을 통해 변경하는 방식으로 실무에서 주로 사용하는
+     방식이다. -->
      <form name="fileForm" method="post" enctype="multipart/form-data"
-          action="UploadProcess.jsp" onsubmit="return validateForm(this);">
+          action="UploadProcess.jsp" onsubmit="return validateForm(this);"> 
+     <!-- 파일명을 그대로 사용하고, 중복되는 경우 자동으로 인덱스를 부여하여
+     처리하는 방식 -->
+     <!-- <form name="fileForm" method="post" enctype="multipart/form-data"
+          action="SimpleProcess.jsp" onsubmit="return validateForm(this);"> -->
         작성자 : <input type="text" name="name" value="머스트해브" /><br />
         제목 : <input type="text" name="title" /><br /> 
         카테고리(선택사항) : 
