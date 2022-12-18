@@ -5,7 +5,6 @@ import java.util.Map;
 import java.util.Vector;
 
 import common.DBConnPool;
-import model1.board.BoardDTO;
 public class MVCBoardDAO extends DBConnPool{
    
    //생성자에서 DBCP(커넥션풀)를 통해 오라클에 연결한다.
